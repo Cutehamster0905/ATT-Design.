@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon">
+<path id="progress-circle-path" d="M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke-width="2" stroke="#A3C9FF"/>
+<path id="progress-circle-trail" d="M8 1C9.10467 1 10.1937 1.26144 11.1779 1.76295C12.1622 2.26447 13.0138 2.9918 13.6631 3.8855C14.3124 4.7792 14.741 5.81389 14.9138 6.90496C15.0866 7.99603 14.9988 9.11251 14.6574 10.1631" stroke-width="2" stroke="#0278FF"/>
+</g>
+</svg>

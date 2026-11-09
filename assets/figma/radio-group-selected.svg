@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="radio">
+<circle id="hover" opacity="0" cx="7" cy="7" r="12" fill="#F2F2F2"/>
+<path id="radio_2" d="M7 1C10.3137 1 13 3.68629 13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1Z" fill="white" stroke-width="2" stroke="#E0E1E2"/>
+<path id="explosion" d="M0 7C0 3.13401 3.13401 0 7 0V0C10.866 0 14 3.13401 14 7V7C14 10.866 10.866 14 7 14V14C3.13401 14 0 10.866 0 7V7Z" fill="#0278FF"/>
+</g>
+</svg>

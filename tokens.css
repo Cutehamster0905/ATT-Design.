@@ -1,0 +1,193 @@
+/* Source: Figma 原稿·色彩参考 + Assets 330:23. 111 semantic tokens. */
+:root{
+  --att-color-status-warning-default: #FF7B34;
+  --att-color-extended-orange-red-default: #F77234;
+  --att-color-status-warning-hover: #FF955D;
+  --att-color-extended-orange-red-hover: #F99057;
+  --att-color-status-warning-pressed: #CC622A;
+  --att-color-extended-orange-red-pressed: #CC5120;
+  --att-color-status-warning-disabled: #FFDECC;
+  --att-color-extended-orange-red-disabled: #FCC59F;
+  --att-color-status-warning-subtle: #FFF2EB;
+  --att-color-extended-orange-red-subtle: #FFF3E8;
+  --att-color-status-warning-soft: #FFEBE1;
+  --att-color-extended-orange-red-soft: #FDDDC3;
+  --att-color-status-success-default: #15C179;
+  --att-color-extended-cyan-default: #00B42A;
+  --att-color-status-success-hover: #36CE8E;
+  --att-color-extended-cyan-hover: #23C343;
+  --att-color-status-success-pressed: #039B5B;
+  --att-color-extended-cyan-pressed: #009A29;
+  --att-color-status-success-disabled: #C0F0DC;
+  --att-color-extended-cyan-disabled: #7BE188;
+  --att-color-status-success-subtle: #E6F9F1;
+  --att-color-extended-cyan-subtle: #E8FFFB;
+  --att-color-status-success-soft: #D9F6EA;
+  --att-color-extended-cyan-soft: #AFF0B5;
+  --att-color-status-danger-default: #FF3E3E;
+  --att-color-extended-gold-default: #F7BA1E;
+  --att-color-extended-blue-default: #3491FA;
+  --att-color-extended-purple-default: #722ED1;
+  --att-color-extended-yellow-default: #FADC19;
+  --att-color-extended-lime-default: #9FDB1D;
+  --att-color-extended-pink-purple-default: #D91AD9;
+  --att-color-extended-magenta-default: #F5319D;
+  --att-color-status-danger-hover: #FF6565;
+  --att-color-extended-gold-hover: #F9CC45;
+  --att-color-extended-blue-hover: #57A9FB;
+  --att-color-extended-purple-hover: #8D4EDA;
+  --att-color-extended-yellow-hover: #FBE842;
+  --att-color-extended-lime-hover: #B5E241;
+  --att-color-extended-pink-purple-hover: #E13EDB;
+  --att-color-extended-magenta-hover: #F754A8;
+  --att-color-status-danger-pressed: #CC3232;
+  --att-color-extended-gold-pressed: #CC9213;
+  --att-color-extended-blue-pressed: #206CCF;
+  --att-color-extended-purple-pressed: #551DB0;
+  --att-color-extended-yellow-pressed: #CFAF0F;
+  --att-color-extended-lime-pressed: #7EB712;
+  --att-color-extended-pink-purple-pressed: #B010B6;
+  --att-color-extended-magenta-pressed: #CB1E83;
+  --att-color-status-danger-disabled: #FFCFCF;
+  --att-color-extended-gold-disabled: #FCE996;
+  --att-color-extended-blue-disabled: #9FD4FD;
+  --att-color-extended-purple-disabled: #C396ED;
+  --att-color-extended-yellow-disabled: #FDFA94;
+  --att-color-extended-lime-disabled: #DCF190;
+  --att-color-extended-pink-purple-disabled: #F08EE6;
+  --att-color-extended-magenta-disabled: #FB9DC7;
+  --att-color-status-danger-subtle: #FFECEC;
+  --att-color-extended-gold-subtle: #FFFCE8;
+  --att-color-extended-blue-subtle: #E8F7FF;
+  --att-color-extended-purple-subtle: #F5E8FF;
+  --att-color-extended-yellow-subtle: #FEFFE8;
+  --att-color-extended-lime-subtle: #FCFFE8;
+  --att-color-extended-pink-purple-subtle: #FFE8FB;
+  --att-color-extended-magenta-subtle: #FFE8F1;
+  --att-color-status-danger-soft: #FFE2E2;
+  --att-color-extended-gold-soft: #FDF4BF;
+  --att-color-extended-blue-soft: #C3E7FE;
+  --att-color-extended-purple-soft: #DDBEF6;
+  --att-color-extended-yellow-soft: #FEFEBE;
+  --att-color-extended-lime-soft: #EDF8BB;
+  --att-color-extended-pink-purple-soft: #F7BAEF;
+  --att-color-extended-magenta-soft: #FDC2DB;
+  --att-color-border-strong: #D4D5D5;
+  --att-color-border-control: #E0E1E2;
+  --att-color-border-divider: #E2E5E9;
+  --att-color-background-hover-disabled: #E0E1E2;
+  --att-color-background-table-header: #F2F2F2;
+  --att-color-background-canvas-hover: #F9FAFB;
+  --att-color-background-surface: #FFFFFF;
+  --att-color-text-primary: rgb(0 0 0 / 85%);
+  --att-color-text-secondary: rgb(0 0 0 / 65%);
+  --att-color-text-tertiary: rgb(0 0 0 / 45%);
+  --att-color-text-disabled: rgb(0 0 0 / 25%);
+  --att-color-text-inverse: #FFFFFF;
+  --att-color-brand-default: #0278FF;
+  --att-color-brand-hover: #3593FF;
+  --att-color-brand-pressed: #0260CC;
+  --att-color-brand-emphasis: #7AB1FF;
+  --att-color-brand-disabled: #A3C9FF;
+  --att-color-brand-soft: #DBEAFF;
+  --att-color-brand-subtle: #ECF5FF;
+  --att-color-action-default: #0278FF;
+  --att-color-action-hover: #3593FF;
+  --att-color-action-pressed: #0260CC;
+  --att-color-action-disabled: #A3C9FF;
+  --att-color-text-link: #0278FF;
+  --att-color-text-body: rgb(0 0 0 / 65%);
+  --att-color-text-placeholder: rgb(0 0 0 / 45%);
+  --att-color-background-canvas: #F9FAFB;
+  --att-color-background-muted: #F2F2F2;
+  --att-color-background-selected: #ECF5FF;
+  --att-color-border-default: #E0E1E2;
+  --att-color-status-danger: #FF3E3E;
+  --att-color-status-success: #15C179;
+  --att-color-status-warning: #FF7B34;
+  --att-color-icon-primary: rgb(0 0 0 / 85%);
+  --att-color-icon-secondary: rgb(0 0 0 / 65%);
+  --att-color-icon-tertiary: rgb(0 0 0 / 45%);
+  --att-color-icon-disabled: rgb(0 0 0 / 25%);
+  --att-color-icon-inverse: #FFFFFF;
+  --att-color-background-inverse: rgb(0 0 0 / 85%);
+}
+/* ATT 01.基础规范 + 原 Card 3:70436 / 原 CSP 3:64863. */
+:root {
+  --att-font-family-ui: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --att-shadow-navigation: 0 1px 2px rgb(0 0 0 / 6%);
+  --att-font-brand-size: 24px;
+  --att-font-brand-line: 28px;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  --att-space-4: 4px;
+  --att-space-8: 8px;
+  --att-space-12: 12px;
+  --att-space-16: 16px;
+  --att-space-24: 24px;
+  --att-radius-small: 6px;
+  --att-radius-medium: 8px;
+  --att-height-medium: 32px;
+  --att-font-page-size: 32px;
+  --att-font-page-line: 44px;
+  --att-font-section-size: 24px;
+  --att-font-section-line: 36px;
+  /* Card title is 18/26 Medium, NOT the 16/26 regular body style. */
+  --att-font-card-title-size: 18px;
+  --att-font-card-title-line: 26px;
+  --att-font-card-title-weight: 500;
+  --att-font-control-size: 14px;
+  --att-font-control-line: 22px;
+  --att-font-caption-size: 12px;
+  --att-font-caption-line: 20px;
+  --att-shadow-card: 0 0 1px rgb(0 0 0 / 8%), 0 1px 4px rgb(0 0 0 / 4%), 0 2px 8px rgb(0 0 0 / 4%);
+  --att-shadow-popover: 0 4px 16px rgb(0 0 0 / 12%);
+  --att-shadow-modal: 0 12px 32px rgb(0 0 0 / 18%);
+  --att-header-height: 60px;
+  --att-sidebar-width: 196px;
+}
+/* Component-specific backgrounds and message effect from ATT Figma, 2026-11-01. */
+:root{--att-shadow-message:0 4px 8px -2px rgb(0 0 0 / 8%),0 8px 32px -8px rgb(0 0 0 / 7%),0 16px 64px -16px rgb(0 0 0 / 5%)}
+:root{--att-shadow-picker:0 2px 4px rgb(0 0 0 / 8%),0 4px 16px rgb(0 0 0 / 7%),0 8px 32px rgb(0 0 0 / 3%)}
+/* Figma warning/6-警告色: Vector in Alert 3:108140, read 2026-11-02. */
+:root{--att-shadow-confirm:0 2px 4px -1px rgb(0 0 0 / 8%),0 4px 16px -4px rgb(0 0 0 / 7%),0 8px 32px -8px rgb(0 0 0 / 3%)}
+
+:root{
+  --att-color-brand: var(--att-color-brand-default);
+  --att-color-action: var(--att-color-action-default);
+  --att-color-danger: var(--att-color-status-danger-default);
+  --att-color-success: var(--att-color-status-success-default);
+  --att-color-warning: var(--att-color-status-warning-default);
+  --att-color-surface: var(--att-color-background-surface);
+  --att-color-canvas: var(--att-color-background-canvas);
+  --att-color-muted: var(--att-color-background-muted);
+  --att-color-selected: var(--att-color-background-selected);
+  --att-color-border: var(--att-color-border-control);
+  --att-color-divider: var(--att-color-border-divider);
+  --att-color-warning-graphic: var(--att-color-status-warning-default);
+  --att-color-breadcrumb-muted: var(--att-color-text-tertiary);
+  --att-success-bg:var(--att-color-status-success-subtle);
+  --att-success-border:var(--att-color-status-success-disabled);
+  --att-warning-bg:var(--att-color-status-warning-subtle);
+  --att-warning-border:var(--att-color-status-warning-disabled);
+  --att-error-bg:var(--att-color-status-danger-subtle);
+  --att-error-border:var(--att-color-status-danger-disabled);
+  --att-info-border:var(--att-color-brand-disabled);
+  --att-color-overlay:rgb(0 0 0 / 28%);
+  --att-font-body-size:16px;--att-font-body-line:26px;
+}
