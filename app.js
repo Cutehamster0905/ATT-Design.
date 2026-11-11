@@ -66,6 +66,48 @@ document.addEventListener('click', event => {
   }
 });
 
+
+function pageFrameworkPreview(withTabs) {
+  const menu = withTabs
+    ? ['首页','商品管理','交易','物流','营销活动','联盟营销','生意参谋','合规中心','资金账户','店铺','成长中心']
+    : ['首页','商品','竞价','交易','物流','店铺','营销','推广','B2B2CC中心','资金','账号认证','生意参谋','体检'];
+  return `<div class="demo-frame" style="overflow:auto">
+    <div style="min-width:640px;background:var(--canvas)">
+      <header class="row" style="height:60px;padding:0 24px;justify-content:space-between;background:var(--surface)">
+        <div class="row"><img src="assets/att-logo.svg" width="32" height="28" alt=""><strong>TT跨境电商</strong></div>
+        <span class="caption">消息　通知　林晓 · 主管</span>
+      </header>
+      <div style="display:grid;grid-template-columns:196px minmax(0,1fr)">
+        <aside class="stack" aria-label="侧栏示例" style="padding:8px;gap:4px">
+          ${menu.map((label,index)=>`<span class="side-link${index===0?' active':''}">${label}</span>`).join('')}
+        </aside>
+        <div style="padding:24px;background:linear-gradient(90deg,var(--att-color-brand-soft),transparent) top left/100% 24px no-repeat,linear-gradient(var(--att-color-brand-soft),transparent) top left/24px 100% no-repeat">
+          ${withTabs ? '<div class="caption">首页 › 新闻</div>' : ''}
+          <div style="font-size:24px;line-height:36px;font-weight:700">标题</div>
+          ${withTabs ? '<div class="tabs-demo"><button type="button" class="active" aria-pressed="true" data-framework-tab>Tab 1</button><button type="button" aria-pressed="false" data-framework-tab>Tab 2</button><button type="button" aria-pressed="false" data-framework-tab>Tab 3</button><button type="button" aria-pressed="false" data-framework-tab>Tab 4</button></div>' : ''}
+          <div style="padding-top:16px;background:linear-gradient(90deg,var(--att-success-border),transparent) top/100% 16px no-repeat">
+            <div class="demo-frame" style="background:var(--surface);padding:24px;min-height:144px">
+              <span class="caption">蓝色区域标注页面外边距 24px，绿色区域标注内容间距 16px。</span>
+            </div>
+          </div>
+          <div style="padding-top:16px;background:linear-gradient(90deg,var(--att-success-border),transparent) top/100% 16px no-repeat">
+            <div class="demo-frame" style="background:var(--surface);min-height:144px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+document.addEventListener('click', event => {
+  const tab = event.target.closest('[data-framework-tab]');
+  if (!tab) return;
+  for (const item of tab.parentElement.children) {
+    item.classList.toggle('active', item === tab);
+    item.setAttribute('aria-pressed', String(item === tab));
+  }
+});
+
 function guide(id){const g=guides.find(g=>g.id===id);if(!g)return notFound();content.innerHTML=pageHead(g.title,g.intro,`<span class="chip">${g.source}</span>${g.page?`<a href="${FIGMA}?node-id=${g.page.replace(':','-')}" target="_blank" rel="noreferrer">Figma 指南 ↗</a>`:''}`,'ATT DESIGN / 设计指南')+`<article class="design-article${id==='layout'?' layout-guide':id==='filter'?' filter-guide':''}">${designVisual(id)}${g.sections.map(([title,text],i)=>`<section id="guide-${i}"><h2>${title}</h2><p>${text}</p>${id==='layout'?layoutExample(i, demo, patternFilter):id==='page-framework'&&i<2?pageFrameworkPreview(i===0):''}</section>`).join('')}${id==='motion'?'<div class="notice">参考来源：<a href="https://ant.design/docs/spec/motion-cn/" target="_blank" rel="noreferrer">Ant Design 动效原则 ↗</a>。100/200/300ms为本网站补充建议值。</div>':''}<section id="related"><h2>相关组件</h2><div class="row">${(id==='form'?['Input','Select','Radio','Checkbox','Switch','Transfer','Upload','Form']:id==='motion'?['Dropdown','Modal','Drawer']:id==='shadow'?['Card','Popover','Modal']:id==='typography'?['Typography','Card']:['Grid','Layout','Button']).map(cid=>`<a class="btn" href="#/component/${cid}">${cid}</a>`).join('')}</div></section></article>`+footer();toc([...g.sections.map(([title],i)=>['guide-'+i,title]),['related','相关组件']]);mountDemos()}
 function patternFilter(caption='四列筛选 · 列间16px · 标签间8px · 默认控件32px'){return `<div class="demo-frame"><div class="demo-stage vertical"><div class="pattern-filters" style="width:100%">${['店铺名称','销售国家','履约仓','经营日期'].map((s,i)=>`<label class="field">${s}${i===0?'<input class="input" placeholder="请输入店铺名称">':i===3?'<input class="input" type="date" value="2026-10-29">':`<select><option>全部${s}</option><option>${i===1?'德国':'柏林仓'}</option><option>${i===1?'法国':'巴黎仓'}</option></select>`}</label>`).join('')}</div><div class="row" style="gap:8px"><button class="btn primary" data-message="已应用示例筛选">搜索</button><button class="btn" data-pattern-reset>重置</button></div></div><div class="demo-description"><p>${caption}</p></div></div>`}
 function patterns(){content.innerHTML=pageHead('业务模式','把原有组件组合为可复用的任务路径，连接设计规范与实际业务。',`<span class="chip">已有 ATT 规范</span><span class="chip blue">组合示例</span>`)+`<section class="doc-section" id="pattern-filter"><h2>列表筛选</h2><p><a href="#/guide/filter">查看列表筛选的容器使用规则</a>。</p>${patternFilter()}</section><section class="doc-section" id="pattern-form"><h2>新建与编辑</h2><div class="demo-frame"><div class="demo-stage">${demo('Form')}</div></div></section><section class="doc-section" id="pattern-table"><h2>表格与反馈</h2><div class="demo-frame"><div class="demo-stage">${demo('Table')}</div></div></section>`+footer();toc([['pattern-filter','列表筛选'],['pattern-form','新建与编辑'],['pattern-table','表格与反馈']]);mountDemos()}
