@@ -51,7 +51,13 @@ Slider:()=>`<div class="row" style="width:100%"><input type="range" min="0" max=
 Rate:()=>`<div class="stack"><div class="rate" data-rating="3" role="group" aria-label="服务评分">${[1,2,3,4,5].map(n=>`<button class="${n<=3?'active':''}" data-rate="${n}" aria-label="${n}星" aria-pressed="${n===3}"><span class="rate-star" aria-hidden="true"></span></button>`).join('')}</div><span class="caption" id="rate-value">3 / 5 星</span></div>`,
 DatePicker:()=>`<label class="field">经营日期<input class="input" type="date" value="2026-10-29"></label>`,
 TimePicker:()=>`<label class="field">截止时间<input class="input" type="time" value="18:00"><span class="caption">Europe/Berlin · 24小时制</span></label>`,
-Form:()=>`<form id="example-form" class="form-demo" novalidate><label class="field">店铺名称 *<input class="input" name="store" required placeholder="请输入店铺名称" aria-describedby="form-error"><span class="field-error" id="form-error" hidden>请填写店铺名称。</span></label><label class="field">销售国家<select name="country"><option>德国</option><option>法国</option></select></label>${extendedForm?`
+Form:()=>`<form id="example-form" class="form-demo" novalidate><label class="field"><span><span aria-hidden="true" style="color:var(--att-color-danger)">*</span> 店铺名称</span><input class="input" name="store" required placeholder="请输入店铺名称" aria-describedby="form-error"><span class="field-error" id="form-error" hidden>请填写店铺名称。</span></label><label class="field">销售国家<select name="country"><option>德国</option><option>法国</option></select></label>${extendedForm?`
+<div class="field"><span>默认 · 带辅助说明</span><input class="input" placeholder="例如 ATT-1001"><span class="caption">使用店铺内唯一的 SKU 编码。</span></div>
+<div class="field"><span>聚焦</span><input class="input" placeholder="点击或按 Tab 查看聚焦状态"></div>
+<div class="field"><span>错误</span><input class="input" value="ATT-1001" aria-invalid="true" aria-describedby="att-sku-error"><span class="field-error" id="att-sku-error">此 SKU 已存在，请更换编码。</span></div>
+<label class="field">禁用<input class="input" value="柏林仓" disabled><span class="caption">仓库配置由平台维护。</span></label>
+<label class="field">只读<input class="input" value="ORD-10001" readonly></label>
+<div class="field"><span>校验中</span><input class="input" value="ATT-1002" readonly aria-busy="true"><span class="caption" role="status">正在校验 SKU 编码…</span></div>
 <div class="field"><span>履约方式</span>${radioGroup(['平台履约','商家自发货'],'fulfillment','horizontal','履约方式')}</div>
 <div class="field" role="group" aria-labelledby="form-events-label"><span id="form-events-label">关注事项</span><div class="row">
 ${['订单','库存','售后'].map(item=>`<label class="check"><input type="checkbox" name="events" value="${item}">${item}</label>`).join('')}
