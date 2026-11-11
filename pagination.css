@@ -1,0 +1,54 @@
+.att-pagination {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  color:var(--att-color-text-body);
+  font-size:14px;
+  line-height:22px;
+}
+.att-pagination-item {
+  display:inline-grid;
+  place-items:center;
+  flex:none;
+  width:32px;
+  height:32px;
+  padding:0;
+  border:0;
+  border-radius:6px;
+  background:transparent;
+  color:inherit;
+}
+button.att-pagination-item:hover:not(:disabled),
+.att-pagination-item[aria-current="page"] {
+  background:var(--att-color-brand-subtle);
+  color:var(--att-color-action);
+}
+button.att-pagination-item:disabled { color:var(--att-color-text-disabled); opacity:1; }
+.att-pagination-arrow {
+  width:12px;
+  height:12px;
+  background:currentColor;
+  mask:url('assets/figma/breadcrumb-right.svg') center / contain no-repeat;
+}
+.att-pagination-arrow.prev { rotate:180deg; }
+.att-pagination-size, .att-pagination-jump input {
+  box-sizing:border-box;
+  height:32px;
+  padding:4px 8px;
+  color:var(--att-color-text-primary);
+  border:1px solid var(--att-color-border);
+  border-radius:6px;
+  background:var(--att-color-surface);
+  font:inherit;
+}
+.att-pagination-size {
+  appearance:none;
+  width:94px;
+  padding-left:12px;
+  padding-right:28px;
+  background:var(--att-color-surface) url('assets/figma/common-chevron-down.svg') right 8px center / 16px no-repeat;
+}
+.att-pagination-jump label { display:flex; align-items:center; gap:8px; }
+.att-pagination-jump input { width:40px; text-align:center; appearance:textfield; }
+.att-pagination-jump input::-webkit-inner-spin-button { appearance:none; }
