@@ -34,8 +34,8 @@ export function layoutExample(index, demo, patternFilter) {
         <tbody><tr><td>4px</td><td>控件到帮助或错误反馈</td></tr>
         <tr><td>8px</td><td>标签到控件、图文、同组按钮</td></tr>
         <tr><td>12px</td><td>表格单元格内边距</td></tr>
-        <tr><td>16px</td><td>同级卡片、筛选行列、卡片标题到正文</td></tr>
-        <tr><td>24px</td><td>页面与卡片内边距、录入字段之间、表单到按钮组</td></tr>
+        <tr><td>16px</td><td>同级卡片、筛选行列、表单字段、标题到表单或表格</td></tr>
+        <tr><td>24px</td><td>页面与卡片内边距、表单到按钮组</td></tr>
         <tr><td>32 / 48px</td><td>独立业务分组 / 长页面章节（场景扩展值）</td></tr></tbody>
       </table></div>`;
     case 7:
