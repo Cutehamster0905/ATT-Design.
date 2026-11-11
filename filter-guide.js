@@ -24,6 +24,18 @@ const cases = [
     fields: ['lookup', 'store', 'createdDate', 'exception'],
     note: '字段占满一行时，按钮组整体移到下一行。行间距为 16px，按钮间距为 8px。',
   },
+  {
+    title: '单行 · 增加快筛',
+    quick: true,
+    fields: ['store', 'reportDate', 'lookup'],
+    note: '快筛位于字段上方。筛选字段不超过 3 项时，选项变更即时生效，文本按 Enter 或搜索图标触发。',
+  },
+  {
+    title: '双行 · 增加快筛',
+    quick: true,
+    fields: ['lookup', 'store', 'createdDate', 'exception', 'channel', 'fulfillment'],
+    note: '快筛位于字段上方。筛选字段超过 3 项时，搜索与重置紧跟末项，与前一项间距 16px，按钮间距 8px，并与控件底部对齐。',
+  },
 ];
 
 function fieldMarkup(key) {
@@ -41,6 +53,9 @@ export function filterGuide() {
       <div class="demo-stage vertical filter-case">
         <h2>${example.title}</h2>
         <form class="pattern-filters filter-case-grid" data-filter-case="${manual ? 'manual' : 'instant'}">
+          ${example.quick ? `<div class="row" role="group" aria-label="快筛" style="grid-column:1 / -1;gap:12px">
+            ${Array.from({length:9}, (_, index) => `<button type="button" class="chip${index ? '' : ' blue'}" data-quick-filter aria-label="${index ? '标签 '+index : '全部'}，1 项" aria-pressed="${index === 0}" style="height:32px;min-width:88px;justify-content:center;border-radius:100px">${index ? '标签' : '全部'} (1)</button>`).join('')}
+          </div>` : ''}
           ${example.fields.map(fieldMarkup).join('')}
           ${manual ? `<div class="row filter-case-actions">
             <button class="btn primary" type="submit">搜索</button>
@@ -82,4 +97,15 @@ document.addEventListener('keydown', event => {
   if (!form) return;
   event.preventDefault();
   form.requestSubmit();
+});
+
+document.addEventListener('click', event => {
+  const button = event.target.closest('[data-quick-filter]');
+  if (!button) return;
+  for (const option of button.parentElement.querySelectorAll('[data-quick-filter]')) {
+    option.classList.toggle('blue', option === button);
+    option.setAttribute('aria-pressed', String(option === button));
+  }
+  const status = button.closest('.filter-case').querySelector('[data-filter-status]');
+  status.textContent = `快筛：${button.getAttribute('aria-label')} · 回到第 1 页`;
 });
