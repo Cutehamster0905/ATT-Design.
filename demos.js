@@ -35,7 +35,7 @@ Dropdown:()=>`<div class="popup">${B('更多操作'+icon('dropdown-imgDirectionD
 Menu:()=>`<nav class="menu-demo" aria-label="示例菜单">${['工作台','商品管理','订单与发货'].map((s,i)=>`<button class="${i?'':'active'}" data-menu>${s}</button>`).join('')}</nav>`,
 PageHeader:()=>`<div class="row" style="width:100%"><h2>商品管理</h2><span class="spacer"></span>${B('创建商品','primary','data-demo="feedback"')}</div>`,
 Pagination:()=>'<div data-pagination-demo></div>',
-Steps:()=>`<div class="stack att-steps-demo"><div id="steps-preview">${stepsMarkup(1)}</div><div class="row steps-actions">${B('上一步','','data-demo="previous-step"')}${B('下一步','primary','data-demo="next-step"')}${B('重置','','data-demo="reset-steps"')}</div><p class="caption" id="steps-summary" role="status">第2步：确认配置 · 进行中</p></div>`,
+Steps:()=>`<div class="stack att-steps-demo"><div id="steps-preview">${stepsMarkup(1)}</div><div class="row steps-actions">${B('上一步','','data-demo="previous-step"')}${B('下一步','primary','data-demo="next-step"')}${B('重置','','data-demo="reset-steps"')}</div><p class="caption" id="steps-summary" role="status">第2步：确认配置 · 进行中</p><section class="stack"><h3>横向点状步骤条</h3>${dotSteps()}</section><section class="stack"><h3>纵向点状步骤条</h3>${dotSteps(true)}</section></div>`,
 Input:()=>`<div class="stack" style="max-width:360px"><label class="field">店铺名称${I('请输入店铺名称')}</label>${I('禁用状态','disabled')}${!mini?I('只读状态','value="耐克官方旗舰店" readonly'):''}</div>`,
 Textarea:()=>`<label class="field" style="width:100%;max-width:440px">补充说明<textarea rows="3" maxlength="200" data-count placeholder="请输入说明"></textarea><span class="caption" data-counter>0 / 200</span></label>`,
 InputNumber:()=>`<label class="field">计划数量<span class="att-number"><input class="input" type="number" min="0" max="100" step="1" value="12" aria-label="计划数量"><span class="att-number-actions"><button type="button" data-number-step="1" aria-label="增加数量">${icon('dropdown-imgDirectionDown')}</button><button type="button" data-number-step="-1" aria-label="减少数量">${icon('dropdown-imgDirectionDown')}</button></span></span><span class="caption">0–100 件</span></label>`,
@@ -186,4 +186,10 @@ document.addEventListener('reset',e=>{if(e.target.id==='example-form'){e.target.
 }});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePopups();if(tour){tour=0;updateTour()}}if(e.target.id==='tag-input'&&e.key==='Enter'){e.preventDefault();const value=e.target.value.trim(),box=document.querySelector('#input-tags');if(!value)return;if([...box.children].some(n=>n.textContent===value))return toast('标签已存在');if(box.children.length>=5)return toast('最多添加5个标签');const t=document.createElement('span');t.className='tag';t.textContent=value;box.appendChild(t);e.target.value=''}if(e.target.closest('.popup-panel')&&['ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();const buttons=[...e.target.closest('.popup-panel').querySelectorAll('button')];const i=buttons.indexOf(e.target);buttons[(i+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length]?.focus()}if(e.target.getAttribute('role')==='tab'&&['ArrowRight','ArrowLeft'].includes(e.key)){e.preventDefault();const bs=[...e.target.parentElement.querySelectorAll('button')],i=bs.indexOf(e.target);const next=bs[(i+(e.key==='ArrowRight'?1:-1)+bs.length)%bs.length];next.focus();next.click()}});
 document.querySelector('#dialog-confirm').addEventListener('click',()=>{document.querySelector('#demo-dialog').close();toast('操作完成（本地示例）')});
+}
+
+
+function dotSteps(vertical = false) {
+  const statuses = [['已完成','complete'],['进行中','process'],['未开始','wait']];
+  return `<ol class="att-steps att-dot-steps ${vertical?'vertical':''}" aria-label="${vertical?'纵向':'横向'}点状步骤条">${statuses.map(([title,state]) => `<li class="att-step ${state}" ${state==='process'?'aria-current="step"':''}><span class="att-dot-node" aria-hidden="true"></span><div><div class="att-step-title">${title}</div><p class="caption">步骤说明</p></div></li>`).join('')}</ol>`;
 }
