@@ -440,3 +440,19 @@ input:disabled,textarea:disabled{background:var(--att-color-background-table-hea
 .att-dot-steps.vertical .att-step-title { font-size:16px; line-height:24px; }
 .att-dot-steps.vertical .caption { margin-top:0; }
 .att-dot-steps.vertical .att-step:not(:last-child)::after { top:24px; bottom:0; left:5.5px; width:1px; height:auto; }
+
+.att-description-demo { background:var(--surface); padding:24px; margin-bottom:8px; }
+.att-description-demo h4 { margin:0 0 12px; font-size:16px; line-height:24px; font-weight:600; }
+.att-description-demo dl { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr)); gap:var(--description-gap) 24px; margin:0; font-size:var(--description-font); line-height:var(--description-line); }
+.att-description-demo dl > div { display:grid; grid-template-columns:5em minmax(0,1fr); gap:12px; }
+.att-description-demo dt { color:var(--att-color-text-tertiary); }
+.att-description-demo dd { margin:0; overflow-wrap:anywhere; }
+.att-description-demo.single dl { grid-template-columns:1fr; }
+.att-description-demo.single dl > div { column-gap:36px; }
+.att-description-demo.right dt { text-align:right; }
+.att-description-demo:is(.vertical,.inline-vertical) dl > div { grid-template-columns:1fr; gap:2px; }
+.att-description-demo.vertical dl > div:last-child { grid-column:1 / -1; }
+.att-description-demo.bordered dl { gap:1px; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:var(--border); }
+.att-description-demo.bordered dl > div { gap:0; background:var(--border); }
+.att-description-demo.bordered :is(dt,dd) { padding:calc(var(--description-gap) / 2) 12px; background:var(--surface); }
+.att-description-demo.bordered dt { background:var(--canvas); }
