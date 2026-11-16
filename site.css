@@ -424,3 +424,19 @@ input:disabled,textarea:disabled{background:var(--att-color-background-table-hea
 .filter-case [data-filter-status]:empty {
   display: none;
 }
+
+.att-dot-steps { width:480px; }
+.att-dot-steps .att-step { gap:8px; }
+.att-dot-node { width:12px; height:12px; flex:none; border:1px solid var(--border); border-radius:50%; background:var(--surface); }
+.att-dot-steps .complete .att-dot-node { border-color:var(--att-color-brand); }
+.att-dot-steps .process .att-dot-node { border-color:var(--att-color-brand); background:var(--att-color-brand); }
+.att-dot-steps .att-step:not(:last-child)::after { content:''; position:absolute; top:5.5px; left:calc(50% + 10px); width:calc(100% - 20px); height:1px; background:var(--border); }
+.att-dot-steps .att-step.complete::after { background:var(--att-color-brand); }
+.att-dot-steps .att-step-title { font-size:14px; line-height:22px; }
+.att-dot-steps .caption { line-height:18px; margin:4px 0 0; }
+.att-dot-steps.vertical { flex-direction:column; width:200px; min-height:372px; }
+.att-dot-steps.vertical .att-step { flex-direction:row; align-items:flex-start; justify-content:flex-start; text-align:left; gap:16px; }
+.att-dot-steps.vertical .att-dot-node { margin-top:6px; }
+.att-dot-steps.vertical .att-step-title { font-size:16px; line-height:24px; }
+.att-dot-steps.vertical .caption { margin-top:0; }
+.att-dot-steps.vertical .att-step:not(:last-child)::after { top:24px; bottom:0; left:5.5px; width:1px; height:auto; }
