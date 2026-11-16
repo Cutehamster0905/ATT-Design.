@@ -75,7 +75,7 @@ Calendar:()=>`<div class="stack"><strong>2026年10月</strong><div class="calend
 Card:()=>`<div class="card" style="width:100%;max-width:400px"><div class="row" style="justify-content:space-between;margin-bottom:16px"><h3 style="margin:0">店铺经营</h3><a href="#/component/Descriptions">查看详情</a></div><p>卡片内边距24px，标题18/26 Medium。</p><p class="caption" style="margin-top:16px">8px圆角 · ATT 三层卡片阴影</p></div>`,
 Carousel:()=>`<div class="stack"><div id="carousel-slide" class="card" style="background:var(--selected);text-align:center">01 · 经营概览</div><div class="row">${B('上一页','','data-carousel="-1"')}${B('下一页','','data-carousel="1"')}</div></div>`,
 Collapse:()=>`<div class="details-demo"><details open><summary>什么时候使用？</summary><p>用于按需展开次要内容，保持主任务清晰。</p></details><details><summary>如何处理错误状态？</summary><p>说明原因与可执行的恢复方式。</p></details></div>`,
-Descriptions:()=>`<div class="stack descriptions-gallery"><section class="stack"><p class="caption">左右结构</p><h4 class="descriptions-heading">店铺信息</h4><dl class="descriptions-horizontal"><dt>店铺名称</dt><dd>耐克官方旗舰店</dd><dt>店铺 ID</dt><dd>100001</dd><dt>营业状态</dt><dd>正常营业</dd></dl></section><section class="stack"><p class="caption">上下结构</p><div class="descriptions-stacked"><h4>店铺信息</h4><dl>${[['店铺名称','耐克官方旗舰店'],['店铺 ID','100001'],['营业状态','正常营业']].map(([label,value])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl></div></section></div>`,
+Descriptions:()=>`<div class="stack descriptions-gallery"><section class="stack"><p class="caption">左右结构</p><h4 class="descriptions-heading">店铺信息</h4><dl class="descriptions-horizontal"><dt>店铺名称</dt><dd>耐克官方旗舰店</dd><dt>店铺 ID</dt><dd>100001</dd><dt>营业状态</dt><dd>正常营业</dd></dl></section><section class="stack"><p class="caption">上下结构</p><div class="descriptions-stacked"><h4>店铺信息</h4><dl>${[['店铺名称','耐克官方旗舰店'],['店铺 ID','100001'],['营业状态','正常营业']].map(([label,value])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl></div></section></div>${descriptionGallery()}`,
 Image:()=>`<button data-demo="image-preview" aria-label="查看耐克店铺图片"><img src="assets/avatar-nike.png" alt="耐克店铺品牌图片" style="width:96px;height:96px;object-fit:contain;border-radius:8px"></button><span class="caption">点击查看大图</span>`,
 List:()=>`<div class="stack">${['入仓单已创建','资料审核已完成','商品已上架'].map((s,i)=>`<div class="row" style="padding-bottom:12px;border-bottom:1px solid var(--border)"><span class="avatar">${i+1}</span><div>${s}<div class="caption">2026-10-29 · 业务示例</div></div><span class="spacer"></span>${B('查看','text','data-demo="feedback"')}</div>`).join('')}</div>`,
 Popover:bubbleGallery,
@@ -193,3 +193,30 @@ function dotSteps(vertical = false) {
   const statuses = [['已完成','complete'],['进行中','process'],['未开始','wait']];
   return `<ol class="att-steps att-dot-steps ${vertical?'vertical':''}" aria-label="${vertical?'纵向':'横向'}点状步骤条">${statuses.map(([title,state]) => `<li class="att-step ${state}" ${state==='process'?'aria-current="step"':''}><span class="att-dot-node" aria-hidden="true"></span><div><div class="att-step-title">${title}</div><p class="caption">步骤说明</p></div></li>`).join('')}</ol>`;
 }
+
+const descriptionVariants = [{"name":"左对齐, 水平, 单列, 无边框","right":false,"vertical":false,"inline":false,"single":true,"border":false,"ids":["3:70807","3:70823","3:70839","3:70855","3:70871"]},{"name":"右对齐, 水平, 单列, 无边框","right":true,"vertical":false,"inline":false,"single":true,"border":false,"ids":["3:70887","3:70903","3:70919","3:70935","3:70951"]},{"name":"右对齐, 水平, 多列, 无边框","right":true,"vertical":false,"inline":false,"single":false,"border":false,"ids":["3:70967","3:70991","3:71015","3:71039","3:71063"]},{"name":"左对齐, 水平, 多列, 无边框","right":false,"vertical":false,"inline":false,"single":false,"border":false,"ids":["3:71087","3:71111","3:71135","3:71159","3:71183"]},{"name":"左对齐, 行内垂直, 多列, 无边框","right":false,"vertical":false,"inline":true,"single":false,"border":false,"ids":["3:71207","3:71247","3:71287","3:71327","3:71367"]},{"name":"左对齐, 垂直, 多列, 无边框","right":false,"vertical":true,"inline":false,"single":false,"border":false,"ids":["3:71227","3:71267","3:71307","3:71347","3:71387"]},{"name":"左对齐, 水平, 多列, 有边框","right":false,"vertical":false,"inline":false,"single":false,"border":true,"ids":["3:71407","3:71745","3:71753","3:71761","3:71769"]},{"name":"左对齐, 垂直, 多列, 有边框","right":false,"vertical":true,"inline":false,"single":false,"border":true,"ids":["3:71411","3:71435","3:71459","3:71483","3:71507"]},{"name":"左对齐, 水平, 单列, 有边框","right":false,"vertical":false,"inline":false,"single":true,"border":true,"ids":["3:71531","3:71573","3:71615","3:71657","3:71699"]},{"name":"右对齐, 水平, 单列, 有边框","right":true,"vertical":false,"inline":false,"single":true,"border":true,"ids":["3:71552","3:71594","3:71636","3:71678","3:71720"]},{"name":"右对齐, 水平, 多列, 有边框","right":true,"vertical":false,"inline":false,"single":false,"border":true,"ids":["3:71741","3:71749","3:71757","3:71765","3:71773"]},{"name":"左对齐, 行内垂直, 多列, 有边框","right":false,"vertical":false,"inline":true,"single":false,"border":true,"ids":["3:71777","3:71782","3:71787","3:71792","3:71797"]}];
+const descriptionSizes = [['巨大',16,24,16],['大',16,24,12],['中',14,22,8],['小',14,22,4],['迷你',12,20,4]];
+const descriptionItems = [['姓名','苏格拉底'],['手机号','136-6333-2888'],['居住地','北京'],['籍贯','北京'],['出生日期','2020-05-15'],['地址','北京市海淀区知春路盈都大厦']];
+function descriptionPreview(layoutIndex, sizeIndex) {
+  const variant = descriptionVariants[layoutIndex];
+  const [,font,line,gap] = descriptionSizes[sizeIndex];
+  const classes = ['att-description-demo', variant.single?'single':'',variant.right?'right':'',variant.vertical?'vertical':'',variant.inline?'inline-vertical':'',variant.border?'bordered':''].join(' ');
+  return `<section class="${classes}" style="--description-font:${font}px;--description-line:${line}px;--description-gap:${gap}px">
+    <h4>用户信息</h4>
+    <dl>${descriptionItems.map(([label,value])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>
+    </section><a class="caption" href="https://www.figma.com/design/dR8XDKfAOTTQ17bPEnZSYB/AI组件?node-id=${variant.ids[sizeIndex].replace(':','-')}" target="_blank" rel="noopener">查看对应 Figma 变体</a>`;
+}
+function descriptionGallery() {
+  return `<section class="stack" data-description-gallery><h3>描述列表变体</h3><p class="caption">选择布局和尺寸，预览 60 种原稿组合。</p>
+    <div class="row"><label class="field">布局<select data-description-layout>${descriptionVariants.map(({name},index)=>`<option value="${index}">${name}</option>`).join('')}</select></label>
+    <label class="field">尺寸<select data-description-size>${descriptionSizes.map(([name],index)=>`<option value="${index}" ${index===2?'selected':''}>${name}</option>`).join('')}</select></label></div>
+    <div data-description-preview>${descriptionPreview(0,2)}</div></section>`;
+}
+document.addEventListener('change', event => {
+  if (!event.target.matches('[data-description-layout], [data-description-size]')) return;
+  const gallery = event.target.closest('[data-description-gallery]');
+  gallery.querySelector('[data-description-preview]').innerHTML = descriptionPreview(
+    Number(gallery.querySelector('[data-description-layout]').value),
+    Number(gallery.querySelector('[data-description-size]').value)
+  );
+});
