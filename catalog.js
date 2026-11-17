@@ -15,7 +15,7 @@ const rows=[
 ['PageHeader','页头','导航',51,'组织页面标题与当前页面操作。','页面标题使用二级样式 24/36。仅在明确要求时添加副标题。标题到表单或表格 16px。','title|string|—;actions|array|[]'],
 ['Pagination','分页','导航',52,'在明确总量的数据集合中翻页。','中号页码与箭头为 32px，控件间距 8px。支持切换每页条数和输入页码后按 Enter 跳转。筛选后回到第一页，与表格间隔 16px。','total|number|0;page|number|1;pageSize|number|10'],
 ['Steps','步骤条','导航',53,'展示有顺序的任务进程。','图标32px，文字居中放在图标下方，间隔8px；已完成为蓝色描边勾选，进行中为蓝底白色编号，未开始为灰边编号。','current|number|0;items|array|[];status|process / error|process'],
-['Input','输入框','数据录入',4,'输入简短文本内容。','标签始终可见，14/22；默认高32px，标签到控件8px，辅助说明或错误提示距控件8px。','value|string|空;placeholder|string|—;disabled|boolean|false;status|default / error|default'],
+['Input','输入框','数据录入',4,'输入简短文本内容。','标签始终可见，14/22；尺寸为 36、32、28、24px，默认 32px。标签到控件、控件到帮助或错误提示均为 8px。组合控件保持等高，前后缀图标使用 ATT 通用图标。','value|string|空;placeholder|string|—;disabled|boolean|false;status|default / error|default'],
 ['Textarea','文本域','数据录入',5,'录入多行文本和备注。','展示字数上限；内容增长推动后续字段，避免覆盖。','value|string|空;maxLength|number|200;rows|number|4'],
 ['InputNumber','数字输入框','数据录入',6,'录入有范围、精度和单位的数值。','金额与数量分开配置精度；限制同时提供文字说明。','value|number|0;min|number|0;max|number|100;step|number|1'],
 ['InputTag','标签输入框','数据录入',7,'录入多个离散标签。','Enter 确认，删除操作可恢复；禁止空值和重复值。','value|string[]|[];maxCount|number|5'],
